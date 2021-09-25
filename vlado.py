@@ -61,27 +61,27 @@ if upload2 is not None:
 	st.write(Z)
 	st.success("Successful upload")
 
-	Zy = Z[["LOA", "B"]] # formiranje seta
+	Zy = Z[["LOA", "B"]] 
 
-	Zy = Zy.values # pretvaranje u array (XGBoost očekuje array)
+	Zy = Zy.values 
 
-	yhat = model.predict(Zy)  # prediktivni model na novom setu (Zy)
+	yhat = model.predict(Zy)  
 
-	Z.Lightship  # vrijednosti iz originalnog novog seta podataka 
+	Z.Lightship  
 
 	W = pd.DataFrame(yhat, columns=["predikcije"])  
 
 	Z.Lightship.to_frame()
 
-	Q = pd.concat([W,Z.Lightship], axis=1)  # spajanje predikcija i originalnih podataka u jedan dataframe
+	Q = pd.concat([W,Z.Lightship], axis=1)  
 
-	Q["razlika"] = Q.predikcije - Q.Lightship # stvaranje novog stupca, razlika
+	Q["razlika"] = Q.predikcije - Q.Lightship 
 
-	Q["RSE"] = np.sqrt(Q["razlika"]**2)  # formiranje stupca drugog korijena kvadrata razlike
+	Q["RSE"] = np.sqrt(Q["razlika"]**2)  
 
-	Q # prikaz
+	Q 
 
-	RMSE = np.mean(Q.RSE) # računanje RMSE
+	RMSE = np.mean(Q.RSE) 
 
 	st.write("RMSE je ", np.round(RMSE,2) )
 
