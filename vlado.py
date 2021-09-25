@@ -10,7 +10,7 @@ st.title("LightShip Model")
 
 # Upload dataseta
 
-st.header("XGBoost machine learning algoritam - trening i rezultati")
+st.header("XGBoost machine learning algoritam - training and results")
 
 upload = st.file_uploader("Choose Excel file", type='xlsx')
 
