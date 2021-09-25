@@ -54,7 +54,7 @@ st.text("----"*100)
 
 st.header("Testing new data on trained XGBoost model")
 
-upload2 = st.file_uploader("Choose Excel file", type='xlsx')
+upload2 = st.file_uploader("Choose new Excel file", type='xlsx')
 
 if upload2 is not None:
 	Z=pd.read_excel(upload2)
