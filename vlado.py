@@ -12,12 +12,12 @@ st.title("LightShip Model")
 
 st.header("XGBoost machine learning algoritam - trening i rezultati")
 
-upload = st.file_uploader("Izaberi Excel file", type='xlsx')
+upload = st.file_uploader("Choose Excel file", type='xlsx')
 
 if upload is not None:
 	df=pd.read_excel(upload)
 	st.write(df)
-	st.success("Uspješan upload")
+	st.success("Successful upload")
 	X = df.loc[:,["LOA","B"]].values
 	y = df.loc[:,"Lightship"].values
 
@@ -40,26 +40,26 @@ if upload is not None:
 	error = mean_squared_error(y_test, y_pred, squared=False)
 	r2 = r2_score(y_test, y_pred)
 
-	st.header("Algoritam XGBoost postigao je sljedeće rezultate: ")
+	st.header("XGBoost results: ")
 
 	st.write("RMSE je ", np.round(error,2) )
-	st.write("R^2 (koeficijent determinacije) je: ", np.round(r2,4))
+	st.write("R^2 is: ", np.round(r2,4))
 
 else:
-	st.markdown("Molim uplodajte Excel file")
+	st.markdown("Please upload Excel file")
 
 # Upload dataseta za test
 
 st.text("----"*100)
 
-st.header("Testiranje novih podataka na postojećem (treniranom) XGBoost algoritmu")
+st.header("Testing new data on trained XGBoost model")
 
-upload2 = st.file_uploader("Izaberi excel file", type='xlsx')
+upload2 = st.file_uploader("Choose Excel file", type='xlsx')
 
 if upload2 is not None:
 	Z=pd.read_excel(upload2)
 	st.write(Z)
-	st.success("Uspješan upload")
+	st.success("Successful upload")
 
 	Zy = Z[["LOA", "B"]] # formiranje seta
 
@@ -86,5 +86,5 @@ if upload2 is not None:
 	st.write("RMSE je ", np.round(RMSE,2) )
 
 else:
-	st.markdown("Molim uplodajte Excel file")
+	st.markdown("Please upload Excel file")
 		
