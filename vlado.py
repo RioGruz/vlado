@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 import numpy as np
 import json
-import xgboost
+from xgboost import XGBRegressor`
 from streamlit_lottie import st_lottie
 
 def main():
